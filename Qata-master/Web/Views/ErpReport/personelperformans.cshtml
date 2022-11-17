@@ -125,7 +125,7 @@
 
                 <div class="table-responsive">
 
-                        <table id="recordtable" class="table table-sm table-striped table-bordered dataTable" style="width:100%; font-size:12px;">
+                        <table id="recordtable" class="table table-sm table-striped table-bordered dataTable" style="width:100%; font-size:14px;">
                             <thead style="background-color:#1f2937; height:42px;">
 
                                 <tr style="color:#F1F1F1; ">
@@ -141,38 +141,38 @@
                             </tr>
                         </thead>
 
-                        <tbody style="font-size:12px;">
+                        <tbody style="font-size:14px;">
                             @if (CurrentSession.Roles.Contains("Yonetim"))
                             {
 
                 @foreach (var item in Model)
                 {
 <tr>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.KULLANICI </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.BAYI </p>
     </td>
 
 
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.FIRMA </p>
     </td>
 
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.MARKA </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.CESIT </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.ADET </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@string.Format("{0:#,0}", item.CIRO) </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
 
         <div class="mb-1">
             <p class="mb-1">
@@ -198,31 +198,31 @@
 @if (@item.KULLANICI == @CurrentSession.Username)
 {
 <tr>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.KULLANICI </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.BAYI </p>
     </td>
 
 
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.FIRMA </p>
     </td>
 
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.MARKA </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.CESIT </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@item.ADET </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
         <p>@string.Format("{0:#,0}", item.CIRO) </p>
     </td>
-    <td style="font-size:12px;">
+    <td style="font-size:14px;">
 
         <div class="mb-1">
             <p class="mb-1">
