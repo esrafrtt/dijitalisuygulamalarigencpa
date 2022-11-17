@@ -110,7 +110,7 @@
                     <label>İşlem Tarihi</label>
                     <div class="input-daterange input-group" id="datepicker">
                         <input type="text" class="input-sm form-control" name="start"
-                               value="@DateTime.Now.AddDays(-3).ToString("dd.MM.yyyy")"
+                               value="@DateTime.Now.ToString("dd.MM.yyyy")"
                                id="bastarih"
                                placeholder="Start" />
                         <span class="input-group-addon"></span>
@@ -387,7 +387,26 @@
                             firmatoplam = firmatoplam + msg[i].firma;
                         }
                         tableadd("Toplam", adettoplam, firmatoplam, "", numeral(cirotoplam).format('0,0'));
+                        $('#recordtable').DataTable({
+                            dom: 'Bfrtip',
+                            buttons: [{
+                                extend: 'excel',
+                                exportOptions: {
+                                    modifier: {
+                                        page: 'all',
+                                        search: 'none'
+                                    }
+                                },
+                                //the remaining buttons here
+                            }],
+                            "language": {
+                                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                            },
+                            pageLength: 50,
+                            paging: true,
+                            searching: true
 
+                        });
 
 
                     }
