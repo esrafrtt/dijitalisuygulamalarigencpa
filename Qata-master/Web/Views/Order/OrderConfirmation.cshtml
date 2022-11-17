@@ -1,5 +1,35 @@
 ﻿@{ ViewData["Title"] = "Index"; }
+<style>
+    .post {
+        border: 1px solid;
+        padding: 8px;
+        background-color: #7ec959;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        color: white;
+    }
 
+    .posti {
+        border: 1px solid;
+        padding: 8px;
+        background-color: #f22e2e;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .postik {
+        border: 1px solid;
+        padding: 8px;
+        background-color: #19c406;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        color: white;
+    }
+</style>
 <div class="">
     <div class="">
         <div class="col-md-12">
@@ -181,20 +211,20 @@
                         "data": "Status", className: "text-center", "render": function (data, type, row) {
 
                             var html = ``;
-                            if (data == -1) {
-                                html = `<span class="badge badge-secondary spnEtiket">Taslak</span>`;
+                          
+                              if (data == -1) {
+                                html = `<span>Taslak</span>`;
                             }
                             if (data == 0) {
-                                html = `<span class="badge badge-danger badge-pill  spnEtiket">Onaya Gönderildi</span>`;
+                                html = `<span class="postik">Onaya Gönderildi </span>`;
                             }
                             if (data == 1) {
-                                html = `<span class="badge badge-info badge-primary   spnEtiket">Logoya Gönderildi</span>`;
+                                html = `<span class="post">Logoya Gönderildi &#9989;</span>`;
                             }
                             if (data == 2) {
-                                html = `<span class="badge badge-info badge-success spnEtiket">Faturalandı</span>`;
+                                html = `<span style="">Faturalandı &#128221;</span>`;
                             }
-
-
+                       
                             return html;
                         }
 

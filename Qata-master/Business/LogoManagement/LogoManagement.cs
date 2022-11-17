@@ -158,20 +158,27 @@ namespace Business.LogoManagement
 
         public DataResult<List<STOK_DURUM>> GetLogoStok()
         {
-            List<STOK_DURUM> STOK_DURUMs = string.Format(@"  SELECT  KOD as Kod ,AD
-                              ,[Marka Kodu] as MarkaKodu
-                               ,[Malzeme Grup Kodu] MalzemeGrupKodu
-                               ,Model
-                               ,AltGrup
-                               ,STOK
-                               ,ONERI_SIP
-                               ,ONAYLI_SIP
-                               ,KLN_STOK ,
-                               GUNCEL_TARIH,
-                               LOGICALREF
-                           FROM [tiger].[dbo].[ARY_XXX_STOK_DURUM_4]   ").GetQuery<STOK_DURUM>("SCSlogo");
+            List<STOK_DURUM> STOK_DURUMs = string.Format(@"  SELECT [Kod]
+      
+      ,[AD]
+      ,[MarkaKodu]
+      ,[MalzemeGrupKodu]
+      ,[Model]
+      ,[AltGrup]
+      ,[STOK]
+      ,[ONERI_SIP]
+      ,[ONAYLI_SIP]
+      ,[KLN_STOK]
+      ,[GUNCEL_TARIH]
+      ,[LOGICALREF]
+      ,[mal_min]
+      ,[mal_max]
+      ,[mal_son]
+      ,[mal_ort]
+      
+  FROM [tiger].[dbo].[stokmaliyetkontrol]  ").GetQuery<STOK_DURUM>("SCSlogo");
 
-           List<OrderItemBekleyenDto> bekliyenler = string.Format(@" SELECT i.LogoKod ,SUM(i.UnitsInStock) Stock  FROM OrderItems i JOIN Orders o ON i.OrderId=o.Id WHERE o.Status=0 GROUP BY i.LogoKod   ").GetQuery<OrderItemBekleyenDto>();
+            List<OrderItemBekleyenDto> bekliyenler = string.Format(@" SELECT i.LogoKod ,SUM(i.UnitsInStock) Stock  FROM OrderItems i JOIN Orders o ON i.OrderId=o.Id WHERE o.Status=0 GROUP BY i.LogoKod   ").GetQuery<OrderItemBekleyenDto>();
 
 
             foreach (var item in STOK_DURUMs)

@@ -1,6 +1,8 @@
 ﻿@model List<STOK_DURUM>
 
-@{ ViewData["Title"] = "OrderConfirmation"; }
+@{
+    ViewData["Title"] = "OrderConfirmation";
+}
 
 <div class="">
     <div class="">
@@ -21,7 +23,16 @@
         </div>
         <div class="bg-white  mt-4">
             <div class="row bg-white rounded">
-                <div class="form-group form-check form-switch col-md-12 mt-3" style="text-align:right; padding-right:50px;">
+                <div class="searching col-md-9 mt-3 mb-3" style="text-align:left;">
+                    <a class="btn btnsearch btn-outline-primary" data-text="">Tüm Ürünler</a>
+                    <a class="btn btnsearch btn-outline-primary" data-text="Cep Telefonu">Cep Telefonu</a>
+                    <a class="btn btnsearch btn-outline-primary" data-text="Aksesuar">Aksesuar</a>
+                    <a class="btn btnsearch btn-outline-primary" data-text="YENİLENMİŞ CİHAZ">Yenilenmiş Cihaz</a>
+                    <a class="btn btnsearch btn-outline-primary" data-text="Tablet">Tablet</a>
+
+
+                </div>
+                <div class="form-group form-check form-switch col-md-3 mt-3" style="text-align:right; padding-right:50px;">
 
                     <label for="lessthanzero">
 
@@ -32,7 +43,6 @@
 
                 <hr class="container-fluid bg-light pl-5" />
                 <div class="col-sm-12" id="sonuc" style="display:none;">
-
                 </div>
                 <div class="col-sm-12 lessthanzerotable">
                     <table id="recordtable" class="table-bordered display dataTable" style="width:100%; font-size:14px;">
@@ -45,11 +55,15 @@
                                 <th class="pt-1 pb-1"> MalzemeGrupKodu</th>
                                 @if (CurrentSession.Roles.Contains("Yonetim"))
                                 {
-                                    <th class="pt-1 pb-1"> Stok </th>
-                                    <th class="pt-1 pb-1"> Bekleyen Sipariş(Logo) </th>
-                                    <th class="pt-1 pb-1"> Bekleyen Sipariş(Crm) </th>
+
+                                    <th class="pt-1 pb-1"> En Düşük Maliyet</th>
+                                    <th class="pt-1 pb-1">En Yüksek Maliyet</th>
+                                    <th class="pt-1 pb-1"> Son Maliyet</th>
+                                    <th class="pt-1 pb-1"> Ortalama Maliyet</th>
                                 }
                                 <th class="pt-1 pb-1"> Fiili Stok </th>
+
+
 
 
                             </tr>
@@ -59,16 +73,36 @@
                             {
                                 <tr>
                                     <td>@item.Kod</td>
-                                    <td>@item.AD</td>
-                                    <td>@item.MarkaKodu</td>
+                                    <td class="searching">
+                                        <a class="btnsearch" style="color:Highlight" data-text="@item.AD">@item.AD</a>
+                                    </td>
+                                    <td class="searching">
+                                        <a class="btnsearch" style="color:Highlight" data-text="@item.MarkaKodu">@item.MarkaKodu</a>
+                                    </td>
                                     <td>@item.MalzemeGrupKodu</td>
                                     @if (CurrentSession.Roles.Contains("Yonetim"))
                                     {
-                                        <td>@item.STOK</td>
-                                        <td>@item.ONAYLI_SIP</td>
-                                        <td>@item.Bekleyen_STOK</td>
+
+                                        <td style="text-align:right">
+                                            @string.Format("{0:0,0.00} ₺", item.mal_min)
+
+                                        </td>
+                                        <td style="text-align:right">
+                                            @string.Format("{0:0,0.00} ₺", item.mal_max)
+
+                                        </td>
+                                        <td style="text-align:right">
+                                            @string.Format("{0:0,0.00} ₺", item.mal_son)
+
+                                        </td>
+                                        <td style="text-align:right">
+                                            @string.Format("{0:0,0.00} ₺", item.mal_ort)
+
+                                        </td>
                                     }
-                                    <td class="text-danger "><h4>@(item.STOK - item.Bekleyen_STOK- item.ONAYLI_SIP)</h4></td>
+                                    <td class="text-danger "><h4>@(item.STOK - item.Bekleyen_STOK - item.ONAYLI_SIP)</h4></td>
+
+
                                 </tr>
                             }
 
@@ -81,7 +115,7 @@
 
                 </div>
                 <div class="col-sm-12 lessthanzerotable2">
-                    <table id="recordtable2" class="table-bordered display dataTable " style="width:100%; font-size:14px;">
+                    <table id="recordtable2" class="table-bordered display dataTable " style="width:100%; font-size:12px;">
                         <thead style="background-color:#1f2937; height:42px;">
 
                             <tr style="color:#F1F1F1; ">
@@ -91,9 +125,11 @@
                                 <th class="pt-1 pb-1"> MalzemeGrupKodu</th>
                                 @if (CurrentSession.Roles.Contains("Yonetim"))
                                 {
-                                    <th class="pt-1 pb-1"> Stok </th>
-                                    <th class="pt-1 pb-1"> Bekleyen Sipariş(Logo) </th>
-                                    <th class="pt-1 pb-1"> Bekleyen Sipariş(Crm) </th>
+
+                                    <th class="pt-1 pb-1"> En Düşük Maliyet</th>
+                                    <th class="pt-1 pb-1">En Yüksek Maliyet</th>
+                                    <th class="pt-1 pb-1"> Son Maliyet</th>
+                                    <th class="pt-1 pb-1"> Ortalama Maliyet</th>
                                 }
                                 <th class="pt-1 pb-1"> Fiili Stok </th>
 
@@ -108,19 +144,36 @@
                                 {
                                     <tr>
                                         <td>@item.Kod</td>
-                                        <td>@item.AD</td>
-                                        <td>@item.MarkaKodu</td>
+                                        <td class="searching">
+                                            <a class="btnsearch" style="color:Highlight" data-text="@item.AD">@item.AD</a>
+                                        </td>
+                                        <td class="searching">
+                                            <a class="btnsearch" style="color:Highlight" data-text="@item.MarkaKodu">@item.MarkaKodu</a>
+                                        </td>
                                         <td>@item.MalzemeGrupKodu</td>
                                         @if (CurrentSession.Roles.Contains("Yonetim"))
                                         {
-                                            <td>@item.STOK</td>
-                                            <td>@item.ONAYLI_SIP</td>
-                                            <td>@item.Bekleyen_STOK</td>
+
+                                            <td style="text-align:right">
+                                                @string.Format("{0:0,0.00} ₺", item.mal_min)
+
+                                            </td>
+                                            <td style="text-align:right">
+                                                @string.Format("{0:0,0.00} ₺", item.mal_max)
+
+                                            </td>
+                                            <td style="text-align:right">
+                                                @string.Format("{0:0,0.00} ₺", item.mal_son)
+
+                                            </td>
+                                            <td style="text-align:right">
+                                                @string.Format("{0:0,0.00} ₺", item.mal_ort)
+
+                                            </td>
                                         }
-                                        <td class="text-danger "><h4>@(item.STOK - item.Bekleyen_STOK- item.ONAYLI_SIP)</h4></td>
+                                        <td class="text-danger "><h4>@(item.STOK - item.Bekleyen_STOK - item.ONAYLI_SIP)</h4></td>
                                     </tr>
-                                }
-                            }
+                                }           }
 
                         </tbody>
                     </table>
@@ -202,7 +255,7 @@
                 }],
             });
 
-            $(".dataTable tbody").on("click", "a.btnsearch", function () {
+            $(".searching").on("click", "a.btnsearch", function () {
                 var text = $(this).attr("data-text");
                 $('input[type=search]').val(text);
                 $('input[type=search]').keyup();

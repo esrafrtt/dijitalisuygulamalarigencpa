@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entities.Services.Logo
 {
-  public  class STOK_DURUM
+    public class STOK_DURUM
     {
 
         public string Kod { get; set; }
@@ -20,5 +20,13 @@ namespace Entities.Services.Logo
         public double Bekleyen_STOK { get; set; }
         public DateTime GUNCEL_TARIH { get; set; }
         public int LOGICALREF { get; set; }
+        public double mal_min { get; set; }
+        public double mal_max { get; set; }
+        public double mal_son { get; set; }
+
+        public double mal_ort { get; set; }
+
+
+
     }
 }
