@@ -390,5 +390,13 @@ GROUP BY [Malzeme Grup Kodu], Yıl, AY, Slsman", yıl, ay).GetDynamicQuery("SCSl
         {
             return View();
         }
+        public IActionResult stokyaslandirma()
+        {
+
+
+            dynamic model = string.Format(@"SELECT  [MLZ_KODU] ,[MLZ_ADI],[MIKTAR],[MIKTAR_STOK],[GIRIS_TARIHI],[STOK_GUN],[CH_UNVANI] FROM [tiger].[dbo].[ARY_STOK_YASLANDIRMA] where MIKTAR_STOK > 0 ").GetDynamicQuery("SCSlogo");
+
+            return View(model);
+        }
     }
 }

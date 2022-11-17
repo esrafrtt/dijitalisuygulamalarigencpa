@@ -2,6 +2,20 @@
 
 @{ ViewData["Title"] = "AddCustomer"; }
 
+<style>
+     .posti {
+        border: 1px solid;
+        padding: 8px;
+        background-color:#083358;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        color:white
+    }
+</style>
+
+
+
 <div class="row ">
 
     <div class="col-md-12">
@@ -49,7 +63,7 @@
                 <ul class="list-group list-group-flush">
 
 
-                    <li class="list-group-item categoryitem active" data-name="Borsa">
+                    <li class="list-group-item categoryitem posti" data-name="Borsa">
                         <a href="#" class="nav-content-bttn open-font text-white">
                             Sevk Adresi  <i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i>
                         </a>
@@ -209,7 +223,7 @@
                                         <span asp-validation-for="Customer.TaxAdministration" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="#" c class="tcAndVergiKontrol btn btn-info"> Kontrol </a>
+                                        <a href="#" c class="tcAndVergiKontrol btn btn-info2"> Kontrol </a>
                                     </div>
 
                                 </div>
@@ -298,7 +312,7 @@
                                         <span asp-validation-for="Customer.Phone" class="text-danger"></span>
                                     </div>
                                     <div class="col-sm-1">
-                                        <a href="#" class="telControl btn btn-info">Kontrol </a>
+                                        <a href="#" class="telControl btn btn-info2">Kontrol </a>
 
                                     </div>
 

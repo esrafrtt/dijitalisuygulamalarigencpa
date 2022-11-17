@@ -65,9 +65,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-1">
                             <div class="form-group row p-2 ">
                                 <button class="btn btn-secondary mr-1 btn-raised   "><i class="fa fa-times"></i> Temizle</button>
+                                
                                 <button class="btn btn-warning mr-1 btn-raised" id="searchDiv"><i class="fa fa-search"></i> Uygula</button>
                                 <!--Buton Hover Effect-->
                                 <style>
@@ -345,7 +346,7 @@
                 var logoid = $(this).attr("data-logoid");
 
                 $.confirm({
-                    title: 'Şipariş Özeti',
+                    title: 'Sipariş Özeti',
                     content: $("#formozet").html(),
                     columnClass: 'col-md-8',
                     containerFluid: true,
