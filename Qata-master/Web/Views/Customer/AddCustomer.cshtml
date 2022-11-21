@@ -15,7 +15,6 @@
 </style>
 
 
-
 <div class="row ">
 
     <div class="col-md-12">
@@ -36,46 +35,21 @@
 
     <div class="row">
 
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Müşteri Tanımlama &#10507;
+            </a>
 
-
-
-        <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 col-md-2">
-            <div class="card-body d-block w-100 p-4 text-center">
-                <ul class="list-group list-group-flush">
-
-                    <li class="list-group-item categoryitem active">
-                        <a href="/Customer/AddCustomer" class="nav-content-bttn open-font  text-white">
-                            Müşteri Tanımlama <i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i>
-
-                        </a>
-                    </li>
-
-
-
-
-                </ul>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Sevk Adresi</a>
 
             </div>
         </div>
 
-        <div class="card d-block border-0 shadow-xss rounded-3 overflow-hidden mb-3 col-md-2 margin-right: 5px;">
-            <div class="card-body d-block w-100 p-4 text-center">
-                <ul class="list-group list-group-flush">
 
 
-                    <li class="list-group-item categoryitem posti" data-name="Borsa">
-                        <a href="#" class="nav-content-bttn open-font text-white">
-                            Sevk Adresi  <i class="ti-angle-right font-xsss text-grey-500 ms-auto mt-3"></i>
-                        </a>
-                    </li>
-
-
-
-                </ul>
-            </div>
-        </div>
     </div>
-    <div class="pt-3 bg-white">
+    <div class="pt-3 bg-white mt-4">
 
         <form class="form-horizontal" asp-action="AddCustomer">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -148,9 +122,8 @@
                                     </div>
 
                                 </div>
+</div>
                             </div>
-
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 ">
@@ -394,7 +367,7 @@
                                     </div>
 
                                 </div>
-
+                              
                             </div>
 
                         </div>
